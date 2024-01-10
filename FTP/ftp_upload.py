@@ -22,7 +22,7 @@ def main():
         (os.path.join(base_dir, 'files', 'password.txt'), 'password.txt'),
         (os.path.join(base_dir, 'files', 'coucou.txt'), 'coucou.txt'),
         (os.path.join(base_dir, 'files', 'truePassword.txt'), 'truePassword.txt')    
-        (os.path.join(base_dir, 'files', '.'), '.')
+        #(os.path.join(base_dir, 'files', '.'), '.') #A tester, s'il prend en charge tous les fichiers de ce répertoire
     ]
     ftp = None
     try:
