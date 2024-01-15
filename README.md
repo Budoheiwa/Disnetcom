@@ -57,7 +57,9 @@ sudo python3 ftp_automatisation.py
 ```
 
 In **another shell**, use the file `ftp_upload.py` from `FTP` folder:
-> You need to enter the correct inputs such as the IP address, the username, and the password of FTP server
+> You need to enter the correct inputs such as the IP address, the username, and the password of FTP server.
+
+If you want to see the current IP address of your FTP server, simply use the command `sudo docker exec ftp-server hostname -I`. 
 
 ![image](https://github.com/Budoheiwa/PCAP-parser/assets/156065416/8fd525bf-c16b-49bd-bef4-ad2409d55228)
 
