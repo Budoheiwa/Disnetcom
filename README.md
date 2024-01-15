@@ -25,7 +25,16 @@ sudo usermod -aG docker $USER
 > The final thing is to **_logout and in again_**
 
 # How to use PCAP Parser project
+Use the file `docker-compose.yml` from `FTP` folder with the command in the **_terminal_**:
+```
+sudo docker-compose build up -d
+```
+> It will create the container for FTP server.
 
+To enable our FTP server, use the command:
+```
+sudo docker start ftp-server
+```
 
 
 
