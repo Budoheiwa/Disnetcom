@@ -16,14 +16,11 @@ def main():
     ftp_password = 'passadmin'
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    files_to_upload = [
-        (os.path.join(base_dir, 'files', 'test.txt'), 'test.txt'),
-        (os.path.join(base_dir, 'files', 'hash.txt'), 'hash.txt'),
-        (os.path.join(base_dir, 'files', 'password.txt'), 'password.txt'),
-        (os.path.join(base_dir, 'files', 'coucou.txt'), 'coucou.txt'),
-        (os.path.join(base_dir, 'files', 'truePassword.txt'), 'truePassword.txt')    
-        #(os.path.join(base_dir, 'files', '.'), '.') #A tester, s'il prend en charge tous les fichiers de ce répertoire
-    ]
+    files_directory = os.path.join(base_dir, 'files')
+    
+    #List all files in the 'files' directory
+    all_files = [(os.path.join(files_directory, file), file) for file in os.listdir(files_directory) if os.path.isfile(os.path.join(files_directory, file))]
+
     ftp = None
     try:
         # Connect to the FTP server
@@ -31,7 +28,7 @@ def main():
         ftp.login(user=ftp_user, passwd=ftp_password)
 
         # Upload the files
-        upload_files(ftp, files_to_upload)
+        upload_files(ftp, all_files)
 
         print("Files uploaded successfully.")
     except Exception as e:
