@@ -1,19 +1,25 @@
-version: '3.8'
+version: '3'
 
 services:
-  ftps-server:
-    image: fauria/vsftpd
+  ftpd_server:
+    image: stilliard/pure-ftpd
     container_name: ftps-server
     ports:
       - "22:22"
-      - "23:23"  
-      - "21100-21110:21100-21110"
+      - "30000-30009:30000-30009"
+    volumes: # remember to replace /folder_on_disk/ with the path to where you want to store the files on the host machine
+      - "./ftps/data:/home/username"
+      - "./ftps/passwd:/etc/pure-ftpd/passwd"
+# uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
+      - "/ftps/ssl:/etc/ssl/private/"
+# or ssl/tls with Let's Encrypt (cert and key as two files)
+#      - "/etc/letsencrypt/live/<your_server>/cert.pem:/etc/ssl/private/pure-ftpd-cert.pem"
+#      - "/etc/letsencrypt/live/<your_server>/privkey.pem:/etc/ssl/private/pure-ftpd-key.pem"
     environment:
-      - FTP_USER=admin  
-      - FTP_PASS=passadmin
-      - PASV_ADDRESS=172.18.0.3
-      - PASV_MIN_PORT=21100
-      - PASV_MAX_PORT=21110
-    volumes:
-      - ./ftp-data:/home/vsftpd/myuser
+      PUBLICHOST: "localhost"
+      FTP_USER_NAME: username
+      FTP_USER_PASS: mypass
+      FTP_USER_HOME: /home/username
+# also for ssl/tls:
+      ADDED_FLAGS: "--tls=2"
     restart: always
