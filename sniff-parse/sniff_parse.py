@@ -25,7 +25,7 @@ def exifiltr_data(raw_data_list):
             w.write(str(packet))
 
 def read_data():
-    with open("raw_data.txt", "r") as r:
+    with open("FTP_rawdata.txt", "r") as r:
         read_data_lines = r.readlines()
 
     return read_data_lines
