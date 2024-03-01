@@ -10,7 +10,7 @@ def start_ftp_server(command):
         print(f"Error executing command: {e}")
 
 def exec_sniff_parse():
-    subprocess.run(["sudo", "python3", "/sniff-parse/sniff_parse.py"])
+    subprocess.run(["sudo", "python3", "sniff-parse/sniff_parse.py"])
 
 if __name__ == "__main__":
     print("Code 1: Starting FTP server")
