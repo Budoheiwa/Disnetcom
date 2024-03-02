@@ -18,10 +18,12 @@ def parse_pcap(capture_file):
             if raw_data.startswith('USER'):
                 username = raw_data.split(' ')[1].strip()
                 raw_data_list.append(f'Username: {username}')
+                raw_data_list.append('\n')
 
             elif raw_data.startswith('PASS'):
                 password = raw_data.split(' ')[1].strip()
                 raw_data_list.append(f'Password: {password}')
+                raw_data_list.append('\n')
 
             elif raw_data.startswith('STOR'):
                 filename = raw_data.split(' ')[1].strip()
@@ -33,13 +35,12 @@ def parse_pcap(capture_file):
                         next_raw_data = next_packet[Raw].load.decode('utf-8')
                         if next_raw_data.startswith('STOR'):
                             break
-                        else:
+                        elif not next_raw_data.startswith(('150', '226', '200', 'TYPE', 'PASV', '227')):
                             raw_data_list.append(next_raw_data)
                 raw_data_list.append('---End of File Content---')
+                raw_data_list.append('\n')
 
-#            print(f"Raw Data: {raw_data}")
-            format_raw = f"Raw Data: {raw_data}"+"\n"
-            raw_data_list.append(format_raw)
+            print(f"Raw Data: {raw_data}")
 
     return raw_data_list
 
