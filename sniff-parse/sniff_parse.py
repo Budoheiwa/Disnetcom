@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from scapy.all import *
 
-interfaces = ["eth0", "lo", "br-5553900d8119", "br-9e738ae1c6ba"]
+interfaces = ["eth0", "lo", "br-5553900d8119", ""]
 capture = sniff(iface=interfaces, filter="port 21 or (portrange 21100-21110) or port 22 or (portrange 30000-30009)", count=90)
 wrpcap("capturestocker.pcap", capture)
 
