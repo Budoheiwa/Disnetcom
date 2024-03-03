@@ -11,7 +11,7 @@ services:
       - "./ftps/data:/home/username"
       - "./ftps/passwd:/etc/pure-ftpd/passwd"
 # uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
-      - "/ftps/ssl:/etc/ssl/private/"
+      - "./ftps/ssl:/etc/ssl/private/"
 # or ssl/tls with Let's Encrypt (cert and key as two files)
 #      - "/etc/letsencrypt/live/<your_server>/cert.pem:/etc/ssl/private/pure-ftpd-cert.pem"
 #      - "/etc/letsencrypt/live/<your_server>/privkey.pem:/etc/ssl/private/pure-ftpd-key.pem"
