@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from scapy.all import *
 
-interfaces = ["eth0", "lo", "br-5553900d8119", "br-fb9de0832914"]
-capture = sniff(iface=interfaces, filter="port 21 or (portrange 21100-21110) or (portrange 30000-30009)", count=90)
+interfaces = ["eth0", "lo", "br-5553900d8119"]
+capture = sniff(iface=interfaces, filter="port 21 or (portrange 21100-21110)", count=90)
 wrpcap("capturestocker.pcap", capture)
 
 def parse_pcap(capture_file):
@@ -14,7 +14,7 @@ def parse_pcap(capture_file):
         
         if Raw in packet:
             raw_data = packet[Raw].load.decode('utf-8')
-
+            
             if raw_data.startswith('USER'):
                 username = raw_data.split(' ')[1].strip()
                 raw_data_list.append(f'Username: {username}')
