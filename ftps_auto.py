@@ -16,7 +16,7 @@ def exec_sniff_parse():
 if __name__ == "__main__":
     print("Code 1: Starting FTPS server")
     command = "sudo docker restart ftps-server"
-    start_ftp_server(command)
+    start_ftps_server(command)
     print("\r"+"#" * 50 + "\n")
     
     print("Code 2: Sniffing any FTPS packets with parse")
