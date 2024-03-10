@@ -11,8 +11,8 @@ def retrieve_ssl_premasterkey(command):
         print(f"Error executing command: {e}")
 
 if __name__ == "__main__":
-    print("Retrieving the premasterkey from SSL/TLS handshake !")
-    command = "sudo SSLKEYLOGFILE=./premasterkey.txt LD_PRELOAD=/tmp/libsslkeylog.so ./ftps_upload"
+    print("Retrieving the traffic secrets from SSL/TLS handshake !")
+    command = "sudo SSLKEYLOGFILE=./tlskeys.txt LD_PRELOAD=./libsslkeylog.so ./ftps_upload.py"
     retrieve_ssl_premasterkey(command)
     print("\r"+"#" * 50 + "\n")
    

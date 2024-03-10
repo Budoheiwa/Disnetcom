@@ -2,47 +2,9 @@
 from scapy.all import *
 
 interfaces = ["eth0", "lo", "br-fb9de0832914"]
-capture = sniff(iface=interfaces, filter="port 21 or (portrange 30000-30009)", count=90)
+capture = sniff(iface=interfaces, filter="port 21 or (portrange 30000-30009)", count=200)
 wrpcap("capturestocker.pcap", capture)
-"""    
-def parse_pcap(capture_file):
-    packets = rdpcap(capture_file)
-    raw_data_list = []
 
-    for packet in packets:
-        if Raw in packet:
-            raw_data = packet[Raw].load
-
-            # Check for TLS Client Hello
-            if raw_data.startswith(b'\x16\x03') and b'\x01\x01' in raw_data:
-                raw_data_list.append('TLS Client Hello:')
-                raw_data_list.append('--Start--')
-                raw_data_list.append(raw_data)
-                raw_data_list.append('--End--')
-                raw_data_list.append('\n')
-
-            # Check for TLS Server Hello
-            elif raw_data.startswith(b'\x16\x03') and b'\x03\x00' in raw_data:
-                raw_data_list.append('TLS Server Hello:')
-                raw_data_list.append('--Start--')
-                raw_data_list.append(raw_data)
-                raw_data_list.append('--End--')
-                raw_data_list.append('\n')
-
-            # Check for TLS Application Data
-            elif raw_data.startswith(b'\x17\x03') and b'\x03\x00' in raw_data:
-                raw_data_list.append('TLS Application Data:')
-                raw_data_list.append('--Start--')
-                raw_data_list.append(raw_data)
-                raw_data_list.append('--End--')
-                raw_data_list.append('\n')
-                
-            print(f"Raw Data: {raw_data}")
-            
-    print("RAW DATA LIST: ", raw_data_list)
-
-    return raw_data_list
-"""
 def parse_pcap(capture_file):
     packets = rdpcap(capture_file)
     raw_data_list = []
@@ -86,7 +48,7 @@ def parse_pcap(capture_file):
 
 
 def exifiltr_data(raw_data_list):
-    with open("FTPS_rawdata.txt", "w") as w:  # Open the file in text mode for writing
+    with open("FTPS/FTPS_rawdata.txt", "w") as w:  # Open the file in text mode for writing
         for data in raw_data_list:
             if isinstance(data, bytes):
                 # If data is in bytes format, convert it to a string representation
@@ -99,8 +61,8 @@ def exifiltr_data(raw_data_list):
             w.write(formatted_data + '\n')
  
 def read_data():
-    with open("FTPS_rawdata.txt", "r") as r:  
-        read_data_content = r.read()  
+    with open("FTPS/FTPS_rawdata.txt", "r") as r:  
+        read_data_content = r.readlines()  
 
     return read_data_content
 
