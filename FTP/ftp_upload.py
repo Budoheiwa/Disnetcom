@@ -11,7 +11,7 @@ def upload_files(ftp, files):
         upload_file(ftp, local_file_path, remote_file_name)
 
 def main():
-    ftp_server = '172.18.0.2'
+    ftp_server = '172.20.0.2'
     ftp_user = 'admin'
     ftp_password = 'passadmin'
 
