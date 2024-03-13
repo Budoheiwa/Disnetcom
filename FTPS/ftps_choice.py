@@ -3,10 +3,10 @@ import subprocess
 import os
 
 def upload_ftps_files():
-    subprocess.run(["sudo", "python3", "ftps_upload.py"])
+    subprocess.run(["sudo", "python3", "FTPS/ftps_upload.py"])
 
 def retrieve_tls_keys():
-    subprocess.run(["sudo", "python3", "retrieve_tlskeys.py"])
+    subprocess.run(["sudo", "python3", "FTPS/retrieve_tlskeys.py"])
 
     command = "sudo openssl s_client -connect 172.21.0.2:21 -starttls ftp > certificate.pem"
     try:
