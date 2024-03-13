@@ -11,11 +11,9 @@ def exec_ftps_auto():
 if __name__ == "__main__":
     print("--Executing ftp_auto.py script--")
     exec_ftp_auto()
-    print("\r"+"#" * 50 + "\n")
     
     print("--Executing ftps_auto.py script--")
     exec_ftps_auto()
-    print("\r"+"#" * 50 + "\n")
   
        
    

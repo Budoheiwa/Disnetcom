@@ -13,7 +13,15 @@ def send_files_to_ftps(local_folder_path, ftps_server, ftps_user, ftps_password)
         subprocess.run(command, shell=True)
 
 def main():
-    local_folder_path = 'files/*'
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    files_directory = os.path.join(base_dir, 'files')
+
+    # List all files in the 'files' directory
+    all_files = [(os.path.join(files_directory, file), file) for file in os.listdir(files_directory) if os.path.isfile(os.path.join(files_directory, file))]
+
+    # Construct the wildcard path for local_folder_path
+    local_folder_path = os.path.join(files_directory, '*')
+
     ftps_server = '172.21.0.2'
     ftps_user = 'username'
     ftps_password = 'mypass'
@@ -22,4 +30,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

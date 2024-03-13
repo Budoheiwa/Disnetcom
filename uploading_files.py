@@ -3,14 +3,18 @@ import subprocess
 import os
 
 def exec_ftp_upload():
-    command = "sudo python3 FTP/ftp_upload.py"
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    ftp_upload_script = os.path.join(base_dir, "FTP", "ftp_upload.py")
+    command = f"sudo python3 {ftp_upload_script}"
     try:
         subprocess.run(command, check=True, shell=True)
     except subprocess.CalledProcessError as e:
         print(f"Error executing command: {e}")
     
 def exec_ftps_upload():
-    command = "sudo python3 FTPS/ftps_choice.py"
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    ftps_choice_script = os.path.join(base_dir, "FTPS", "ftps_choice.py")
+    command = f"sudo python3 {ftps_choice_script}"
     try:
         subprocess.run(command, check=True, shell=True)
     except subprocess.CalledProcessError as e:

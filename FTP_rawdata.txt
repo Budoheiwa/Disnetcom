@@ -1,0 +1,31 @@
+Username: admin
+
+Password: passadmin
+
+File: hash.txt
+---Start of File Content---
+34819d7beeabb9260a5c854bc85b3e44
+---End of File Content---
+
+File: password.txt
+---Start of File Content---
+Et non, raté c'est pas là le mdp XD !
+---End of File Content---
+
+File: truePassword.txt
+---Start of File Content---
+Bon allez, le mot de passe est dans le fichier hash.txt
+---End of File Content---
+
+File: coucou.txt
+---Start of File Content---
+Coucou, ici vous ne retrouverez pas le mot de passe...
+Ca va ?
+Bon on commence quand ?
+---End of File Content---
+
+File: test.txt
+---Start of File Content---
+Petit test de transfert de fichiers entre ma machine et le serveur !
+---End of File Content---
+

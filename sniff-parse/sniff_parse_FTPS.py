@@ -40,4 +40,4 @@ if __name__ == "__main__":
     print('\n' + "--End of the parsing--" + '\n')
     print("--Beginning of the pcap file filtering--" + '\n')
     pcap_filter_packets(capture_file, filtered_pcap_file)
-    print("#" * 50 + "\n")
+
