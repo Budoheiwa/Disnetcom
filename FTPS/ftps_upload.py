@@ -13,7 +13,7 @@ def send_files_to_ftps(local_folder_path, ftps_server, ftps_user, ftps_password)
         subprocess.run(command, shell=True)
 
 def main():
-    local_folder_path = 'FTPS/files/*'
+    local_folder_path = 'files/*'
     ftps_server = '172.21.0.2'
     ftps_user = 'username'
     ftps_password = 'mypass'
