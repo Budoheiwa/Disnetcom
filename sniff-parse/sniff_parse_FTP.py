@@ -1,9 +1,21 @@
 #!/usr/bin/python3
 from scapy.all import *
+import time
 
-interfaces = ["eth0", "lo", "br-5553900d8119"]
-capture = sniff(iface=interfaces, filter="port 21 or (portrange 21100-21110)", count=90)
-wrpcap("capturestocker.pcap", capture)
+def intercept_packets(interface, filter_expression, timeout):
+    start_time = time.time()
+    packets = []
+    
+    print(f"Intercepting packets on interface {interface} for {timeout} seconds...")
+    while time.time() - start_time < timeout:
+        timeout_func = timeout - (time.time() - start_time)
+        captured_packets = sniff(iface=interface, filter=filter_expression, timeout=timeout_func)
+        if captured_packets:
+            packets += captured_packets
+        else:
+            break
+    
+    return packets
 
 def parse_pcap(capture_file):
     packets = rdpcap(capture_file)
@@ -45,20 +57,29 @@ def parse_pcap(capture_file):
     return raw_data_list
 
 def exifiltr_data(raw_data_list):
-    with open("FTP_rawdata.txt", "w") as w:
+    with open("ftp_rawdata.txt", "w") as w:
         for data in raw_data_list:
             cleaned_data = data.strip("b'\n")
             w.write(cleaned_data + '\n')
 
 def read_data():
-    with open("FTP_rawdata.txt", "r") as r:
+    with open("ftp_rawdata.txt", "r") as r:
         read_data_lines = r.readlines()
 
     return read_data_lines
 
 if __name__ == "__main__":
-    packets = parse_pcap("capturestocker.pcap")
-    exifiltr_data(packets)  
-    read_data()
-    print("\r"+"#" * 50 + "\n")
+    interface = ["eth0", "lo", "br-c5a509f486c7"] #"br-5553900d8119"
+    filter_expression = "port 21 or (portrange 21100-21110)"
+    timeout = 10  # Seconds
     
+    captured_packets = intercept_packets(interface, filter_expression, timeout)
+    if captured_packets:
+        wrpcap("ftp_capturestocker.pcap", captured_packets)
+        packets = parse_pcap("ftp_capturestocker.pcap")
+        exifiltr_data(packets)  
+        read_data()
+    else:
+        print("No packets captured within the specified timeout.")
+    print("\r"+"#" * 50 + "\n")
+
