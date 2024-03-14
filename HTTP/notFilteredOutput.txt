@@ -1,0 +1,90 @@
+Get / Http/1.1
+Host: 127.0.0.1:3000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Http/1.1 200 Ok
+Content-Type: text/html
+Date: Wed, 13 Mar 2024 14:25:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+26c
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de connexion</title>
+</head>
+<body>
+    <h2>Connect</h2>
+    <form action="http://localhost:3000" method="POST">
+        <label for="username">Username :</label>
+        <input type="text" id="username" name="username"><br><br>
+        <br>
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password"><br><br>
+        <br><br>
+        <input type="submit" value="Se connecter">
+    </form>
+</body>
+</html>
+
+0
+Post / Http/1.1
+Host: localhost:3000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 39
+Origin: http://127.0.0.1:3000
+Connection: keep-alive
+Referer: http://127.0.0.1:3000/
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: cross-site
+Sec-Fetch-User: ?1
+
+username=ujhngfvdcsq&password=qsdfvgbhj
+Http/1.1 200 Ok
+Content-Type: text/html
+Date: Wed, 13 Mar 2024 14:25:37 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+26c
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de connexion</title>
+</head>
+<body>
+    <h2>Connect</h2>
+    <form action="http://localhost:3000" method="POST">
+        <label for="username">Username :</label>
+        <input type="text" id="username" name="username"><br><br>
+        <br>
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password"><br><br>
+        <br><br>
+        <input type="submit" value="Se connecter">
+    </form>
+</body>
+</html>
+
+0

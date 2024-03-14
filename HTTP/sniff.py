@@ -22,7 +22,7 @@ def parse_pcap(file_path):
         packets = rdpcap(file_path)
         for packet in packets:
             if Raw in packet:
-                field, value = parse_line(packet[Raw].load.decode('utf-8'))
+                field, value = parse_line(packet[Raw].load)
                 if field is not None:
                     raw_data_list.append(f'{field}: {value}')
     except Exception as e:
@@ -31,7 +31,7 @@ def parse_pcap(file_path):
 
 def write_data(file_path, data_list):
     try:
-        with open(file_path, "a") as file:
+        with open(file_path, "w") as file:
             for data in data_list:
                 file.write(data + '\n')
     except Exception as e:
