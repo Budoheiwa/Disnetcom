@@ -1,10 +1,22 @@
 #!/usr/bin/python3
 from scapy.all import *
 import subprocess
+import time
 
-interfaces = ["eth0", "lo", "br-fb9de0832914"]
-capture = sniff(iface=interfaces, filter="port 21 or (portrange 30000-30009)", count=170)
-wrpcap("capturestocker.pcap", capture)
+def intercept_packets(interface, filter_expression, timeout):
+    start_time = time.time()
+    packets = []
+    
+    print(f"Intercepting packets on interface {interface} for {timeout} seconds...")
+    while time.time() - start_time < timeout:
+        timeout_func = timeout - (time.time() - start_time)
+        captured_packets = sniff(iface=interface, filter=filter_expression, timeout=timeout_func)
+        if captured_packets:
+            packets += captured_packets
+        else:
+            break
+    
+    return packets
 
 def parse_pcap(capture_file):
     packets = rdpcap(capture_file)
@@ -33,11 +45,15 @@ def pcap_filter_packets(capture_file, filtered_pcap_file):
         print(f"Error executing command: {e}")
 
 if __name__ == "__main__":
-    capture_file = "capturestocker.pcap"
-    filtered_pcap_file = "filtered_capturestocker.pcap"
+    interface = ["eth0", "lo", "br-508d6f4743bc"]
+    filter_expression = "port 21 or (portrange 30000-30010)"
+    timeout = 20  # Seconds
 
-    parse_pcap(capture_file)
-    print('\n' + "--End of the parsing--" + '\n')
-    print("--Beginning of the pcap file filtering--" + '\n')
-    pcap_filter_packets(capture_file, filtered_pcap_file)
+    captured_packets = intercept_packets(interface, filter_expression, timeout)
+    if captured_packets:
+        wrpcap("ftps_capturestocker.pcap", captured_packets)
+        parse_pcap("ftps_capturestocker.pcap")
+        print('\n' + "--End of the parsing--" + '\n')
+        print("--Beginning of the pcap file filtering--" + '\n')
+        pcap_filter_packets("ftps_capturestocker.pcap", "ftps_filtered_capturestocker.pcap")
 
