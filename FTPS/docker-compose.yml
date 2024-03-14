@@ -6,7 +6,7 @@ services:
     container_name: ftps-server
     ports:
       - "2121:21"
-      - "30000-30009:30000-30009"
+      - "30000-30010:30000-30010"
     volumes: # remember to replace /folder_on_disk/ with the path to where you want to store the files on the host machine
       - "./ftps/data:/home/username"
       - "./ftps/passwd:/etc/pure-ftpd/passwd"
