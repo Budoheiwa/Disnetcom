@@ -47,7 +47,7 @@ def parse_pcap(capture_file):
                         next_raw_data = next_packet[Raw].load.decode('utf-8')
                         if next_raw_data.startswith('STOR'):
                             break
-                        elif not next_raw_data.startswith(('150', '226', '200', 'TYPE', 'PASV', '227')):
+                        elif not next_raw_data.startswith(('150', '226', '200', 'TYPE', 'PASV', '227', '221', 'QUIT')):
                             raw_data_list.append(next_raw_data)
                 raw_data_list.append('---End of File Content---')
                 raw_data_list.append('\n')
@@ -71,7 +71,7 @@ def read_data():
 if __name__ == "__main__":
     interface = ["eth0", "lo", "br-c5a509f486c7"] #"br-5553900d8119"
     filter_expression = "port 21 or (portrange 21100-21110)"
-    timeout = 10  # Seconds
+    timeout = 15  # Seconds
     
     captured_packets = intercept_packets(interface, filter_expression, timeout)
     if captured_packets:
