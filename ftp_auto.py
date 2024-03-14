@@ -20,10 +20,9 @@ if __name__ == "__main__":
     
     print("Code 2: Sniffing any FTP packets with parse")
     exec_sniff_parse()
-    print("#" * 50 + "\n")
     
     print("\r"+"Code 3: Uploading files to FTP server")
-    print("Files uploaded successfully.")
+    print("--End of uploading--")
     print("\r"+"#" * 50 + "\n")
     
    
