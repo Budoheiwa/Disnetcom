@@ -52,7 +52,7 @@ def pcap_filter_packets(capture_file, filtered_pcap_file):
 if __name__ == "__main__":
     interface = ["eth0", "lo", "br-508d6f4743bc"]  
     filter_expression = "port 21 or (portrange 30000-30010)"
-    timeout = 15  # Seconds
+    timeout = 20  # Seconds
 
     captured_packets = intercept_packets(interface, filter_expression, timeout)
     if captured_packets:
