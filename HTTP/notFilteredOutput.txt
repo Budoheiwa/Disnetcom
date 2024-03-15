@@ -1,18 +1,65 @@
 Get / Http/1.1
 Host: 127.0.0.1:3000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
+sec-ch-ua: "Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
 Upgrade-Insecure-Requests: 1
-Sec-Fetch-Dest: document
-Sec-Fetch-Mode: navigate
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
 Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
 Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
 Http/1.1 200 Ok
 Content-Type: text/html
-Date: Wed, 13 Mar 2024 14:25:31 GMT
+Date: Fri, 15 Mar 2024 16:42:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+26c
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de connexion</title>
+</head>
+<body>
+    <h2>Connect</h2>
+    <form action="http://localhost:3000" method="POST">
+        <label for="username">Username :</label>
+        <input type="text" id="username" name="username"><br><br>
+        <br>
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password"><br><br>
+        <br><br>
+        <input type="submit" value="Se connecter">
+    </form>
+</body>
+</html>
+
+0
+Get /Favicon.Ico Http/1.1
+Host: 127.0.0.1:3000
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: http://127.0.0.1:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
+Http/1.1 200 Ok
+Content-Type: text/html
+Date: Fri, 15 Mar 2024 16:42:44 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 Transfer-Encoding: chunked
@@ -42,25 +89,73 @@ Transfer-Encoding: chunked
 0
 Post / Http/1.1
 Host: localhost:3000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 39
-Origin: http://127.0.0.1:3000
 Connection: keep-alive
-Referer: http://127.0.0.1:3000/
+Content-Length: 31
+Cache-Control: max-age=0
+sec-ch-ua: "Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
 Upgrade-Insecure-Requests: 1
-Sec-Fetch-Dest: document
-Sec-Fetch-Mode: navigate
+Origin: http://127.0.0.1:3000
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
 Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
 Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
 
-username=ujhngfvdcsq&password=qsdfvgbhj
+username=loutre&password=coucou
 Http/1.1 200 Ok
 Content-Type: text/html
-Date: Wed, 13 Mar 2024 14:25:37 GMT
+Date: Fri, 15 Mar 2024 16:42:50 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+26c
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de connexion</title>
+</head>
+<body>
+    <h2>Connect</h2>
+    <form action="http://localhost:3000" method="POST">
+        <label for="username">Username :</label>
+        <input type="text" id="username" name="username"><br><br>
+        <br>
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password"><br><br>
+        <br><br>
+        <input type="submit" value="Se connecter">
+    </form>
+</body>
+</html>
+
+0
+Get /Favicon.Ico Http/1.1
+Host: localhost:3000
+Connection: keep-alive
+sec-ch-ua: "Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
+Http/1.1 200 Ok
+Content-Type: text/html
+Date: Fri, 15 Mar 2024 16:42:50 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 Transfer-Encoding: chunked

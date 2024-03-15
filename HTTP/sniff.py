@@ -10,12 +10,15 @@ def sniff_packets(interface, output_file):
         print(f"Error executing command: {e}")
 
 def parse_line(line):
-    if b':' in line:
-        field, value = line.split(b':', 1)
-        return field.strip().decode("utf-8").title(), value.strip().decode("utf-8")
-    else:
+    try:
+        if b':' in line:
+            field, value = line.split(b':', 1)
+            return field.strip().decode("utf-8").title(), value.strip().decode("utf-8")
+        else:
+            return None, None
+    except UnicodeDecodeError:
         return None, None
-
+        
 def parse_pcap(file_path):
     raw_data_list = []
     try:
