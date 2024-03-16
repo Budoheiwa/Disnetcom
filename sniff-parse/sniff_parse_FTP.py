@@ -68,7 +68,7 @@ def read_data():
 if __name__ == "__main__":
     interface = ["eth0", "lo", "br-c5a509f486c7"] 
     filter_expression = "port 21 or (portrange 21100-21110)"
-    timeout = 25  # Seconds
+    timeout = 20  # Seconds
     
     captured_packets = intercept_packets(interface, filter_expression, timeout)
     if captured_packets:
