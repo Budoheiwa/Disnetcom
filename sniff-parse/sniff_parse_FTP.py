@@ -52,7 +52,7 @@ def parse_pcap(capture_file):
                 raw_data_list.append('---End of File Content---')
                 raw_data_list.append('\n')
 
-            print(f"Raw Data: {raw_data}")
+            #print(f"Raw Data: {raw_data}")
 
     return raw_data_list
 
@@ -65,13 +65,13 @@ def exifiltr_data(raw_data_list):
 def read_data():
     with open("ftp_rawdata.txt", "r") as r:
         read_data_lines = r.readlines()
-
+    print(read_data_lines)
     return read_data_lines
 
 if __name__ == "__main__":
-    interface = ["eth0", "lo", "br-c5a509f486c7"] #"br-5553900d8119"
+    interface = ["eth0", "lo", "br-c5a509f486c7"] 
     filter_expression = "port 21 or (portrange 21100-21110)"
-    timeout = 15  # Seconds
+    timeout = 25  # Seconds
     
     captured_packets = intercept_packets(interface, filter_expression, timeout)
     if captured_packets:
