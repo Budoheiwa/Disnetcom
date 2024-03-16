@@ -14,7 +14,6 @@ def intercept_packets(interface, filter_expression, timeout):
             packets += captured_packets
         else:
             break
-    
     return packets
 
 def parse_pcap(capture_file):
@@ -51,9 +50,7 @@ def parse_pcap(capture_file):
                             raw_data_list.append(next_raw_data)
                 raw_data_list.append('---End of File Content---')
                 raw_data_list.append('\n')
-
-            #print(f"Raw Data: {raw_data}")
-
+            print(f"Raw Data: {raw_data}")
     return raw_data_list
 
 def exifiltr_data(raw_data_list):
