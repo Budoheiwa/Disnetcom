@@ -8,7 +8,7 @@ def intercept_packets(interface, filter_expression, timeout):
     packets = []
     first_packet_received = False
     
-    print(f"Intercepting packets on interface {interface} for {timeout}...")
+    print(f"Intercepting packets on interface {interface} for {timeout} seconds...")
     while time.time() - start_time < timeout:
         timeout_func = timeout - (time.time() - start_time)
         captured_packets = sniff(iface=interface, filter=filter_expression, timeout=timeout_func)
