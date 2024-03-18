@@ -50,7 +50,7 @@ def pcap_filter_packets(capture_file, filtered_pcap_file):
         print(f"Error executing command: {e}")
 
 if __name__ == "__main__":
-    interface = ["eth0", "lo", "br-508d6f4743bc"]  
+    interface = ["eth0", "lo", "br-508d6f4743bc"]   # Add or change network interfaces if necessary 
     filter_expression = "port 21 or (portrange 30000-30010)"
     timeout = 20  # Seconds
 
