@@ -1,0 +1,18 @@
+Il faut :
+- Une Kali avec 2 shells
+- Une Ubuntu 16.04
+
+Sur la Ubuntu :
+- Faire un ifconfig
+- Noter l'IP de l'interface enps03
+
+Sur la Kali :
+- Sur le 1er shell :
+	- Exécuter le code Python
+- Sur le 2e shell :
+	- Faire la commande "telnet <addresse_IP_Ubuntu>"
+	- Rentrer "seed" pour l'username et "dees" pour le mot de passe
+	- Faire sa vie
+- Revenir sur le 1er shell
+	- Arrêter le code python
+- Ouvrir le fichier "cleanFile.txt"
