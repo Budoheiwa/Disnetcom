@@ -2,9 +2,6 @@
 import subprocess
 import os
 
-import subprocess
-import os
-
 def upload_ftps_files():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     script_path = os.path.join(script_dir, "ftps_upload.py")
