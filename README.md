@@ -3,9 +3,11 @@ Before using the PCAP parser project, you need some **requirements**:
 
 - Install Kali Linux OS [https://www.kali.org/get-kali/](https://www.kali.org/get-kali/#kali-platforms).
 
+- Or WSL from Windows 
+
 - Make sure that all is update with the command: 
 ```
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade && sudo apt full-upgrade
 ```
 > Especially Python language
 
@@ -16,7 +18,9 @@ sudo apt update && sudo apt upgrade
 sudo apt install -y docker.io
 sudo systemctl enable docker --now
 ```
-> Now you can get started with using docker, with sudo.
+- Or get some documentations on [Docker](https://www.docker.com/)
+
+> Now you can get started using docker, with sudo.
 
 - If you want to add yourself to the docker group to use docker without sudo, an additional step is needed:
 ```
