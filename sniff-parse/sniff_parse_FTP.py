@@ -54,7 +54,7 @@ def parse_pcap(capture_file):
     return raw_data_list
 
 def exifiltr_data(raw_data_list):
-    with open("ftp_rawdata.txt", "w") as w:
+    with open("ftp_rawdata.txt", "w") as w: # Modify your text file according to your preferences
         for data in raw_data_list:
             cleaned_data = data.strip("b'\n")
             w.write(cleaned_data + '\n')
@@ -66,14 +66,14 @@ def read_data():
     return read_data_lines
 
 if __name__ == "__main__":
-    interface = ["eth0", "lo", "br-c5a509f486c7"] 
-    filter_expression = "port 21 or (portrange 21100-21110)"
-    timeout = 20  # Seconds
+    interface = ["eth0", "lo", "br-c5a509f486c7"] # Select your network interfaces
+    filter_expression = "port 21 or (portrange 21100-21110)" # Select your filter expressions, ports, etc...
+    timeout = 20  # Set a timer in Seconds
     
     captured_packets = intercept_packets(interface, filter_expression, timeout)
     if captured_packets:
-        wrpcap("ftp_capturestocker.pcap", captured_packets)
-        packets = parse_pcap("ftp_capturestocker.pcap")
+        wrpcap("ftp_capturestocker.pcap", captured_packets) # pcap file is stored
+        packets = parse_pcap("ftp_capturestocker.pcap") # Select your pcap file to load and read
         exifiltr_data(packets)  
         read_data()
     else:
