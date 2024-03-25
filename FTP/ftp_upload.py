@@ -16,7 +16,7 @@ def main():
     ftp_password = 'passadmin'
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    files_directory = os.path.join(base_dir, 'files')
+    files_directory = os.path.join(base_dir, 'files') # Select your folder to upload files from it
     
     all_files = [(os.path.join(files_directory, file), file) for file in os.listdir(files_directory) if os.path.isfile(os.path.join(files_directory, file))]
 
