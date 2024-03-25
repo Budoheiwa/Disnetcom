@@ -1,9 +1,9 @@
 # REQUIREMENTS
 Before using the PCAP parser project, you need some **requirements**:
 
-- Install Kali Linux OS [https://www.kali.org/get-kali/](https://www.kali.org/get-kali/#kali-platforms).
+- Install [Kali Linux OS](https://www.kali.org/get-kali/#kali-platforms).
 
-- Or WSL from Windows 
+- Or WSL from Windows [](url)
 
 - Make sure that all is update with the command: 
 ```
@@ -36,24 +36,24 @@ sudo docker-compose build up -d
 ```
 > Remember that you can customize its settings with the port range, the username and the password.
 
-![image](https://github.com/Budoheiwa/PCAP-parser/assets/156065416/8d240f71-fccd-4859-a3a6-a5d9a764bb7b)
+![image](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/d4ad2c89-ab72-441e-8520-d04c81d81333)
 
-> It will create the container for FTP server.
+> It will create a container for the FTP server.
 
 To enable our FTP server, use the command:
 ```
 sudo docker start ftp-server
 ```
-From `sniff_parse.py`, you need to enter which network interfaces, which ports you want to use; and how many packets you want to use for sniffing packets in the network:
+From `sniff_parse_FTP.py` in `FTP` folder, you need to enter which network interfaces, which filter expressions you want to use; and set a timer for how long you want sniff packets in the network:
 
-![image](https://github.com/Budoheiwa/PCAP-parser/assets/156065416/cbf8b388-3955-4780-93f7-744ccd8e7121)
+![image](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/c4d3df6c-ada2-494c-9547-a6d101cdd45e)
 
-To know which **network interfaces** you need to intercept packets, use the command in shell:
+To know which **network interfaces** you need to intercept packets, use these commands in shell:
 ```
 ip a
 ifconfig
 ```
-> Generally, use the **lo**, **eth1**, and the network interface created for FTP server by docker.
+> Generally, use the **lo**, **eth0**, and the network interface created for FTP server by docker.
 
 Then, use the file `ftp_automatisation.py` in the **current shell** to enable the FTP server and to start sniffing FTP packets:
 ```
