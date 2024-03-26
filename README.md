@@ -107,7 +107,10 @@ In **another shell**, use the file `ftps_choice.py` from `FTPS` folder:
 ```
 sudo python3 ftps_choice.py
 ```
-> You have 2 choices. One will be to upload files with TLS protocol by using the script `ftps_upload.py`. The second one will be to retrieve TLS keys while uploading files with TLS protocol, in order to decrypt the packets with the script `retrieve_tlskeys.py`. 
+> You have 2 choices. One will be to upload files with TLS protocol by using the script `ftps_upload.py`. The second one will be to retrieve TLS keys while uploading files with TLS protocol, in order to decrypt the packets with the script `retrieve_tlskeys.py`.
+> If you choose the second option. The script will also retrieve the public certificate `certificate.pem` with `openssl`.
+
+![certificate.pem in ftps_choice.py](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/39f13ca6-aec0-4beb-9359-f9fd26fce7f0)
 
 ### With `ftps_upload.py`
 > Be sure to install first [lftp](https://doc.ubuntu-fr.org/lftp) package which is an FTP client. 
@@ -122,9 +125,18 @@ sudo docker exec ftps-server hostname -I
 After executing those 2 python scripts, you should have in your current folder the `ftps_capturestocker.pcap` and `ftps_filtered_capturestocker.pcap` files. 
 
 ### With `retrieve_tlskeys.py`
-> You need to download the repo from [fxb-cocacoding](https://github.com/fxb-cocacoding/ssl_decrypt/blob/master/sslkeylog.c)
-> Compile the `sslkeylog.c` script to create a library called `libsslkeylog.so`
-> And move it to `FTPS` folder
+> You need to download the repo from [fxb-cocacoding](https://github.com/fxb-cocacoding/ssl_decrypt/blob/master/sslkeylog.c).
+> Compile the `sslkeylog.c` script to create a library called `libsslkeylog.so`.
+> And move it to `FTPS` folder.
 
 ![retrieve_tlskeys.py](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/bedccff8-5154-45c6-951e-8b6b5c7438e1)
 
+After executing those 2 python scripts, you should have in your current folder the `ftps_capturestocker.pcap`, `ftps_filtered_capturestocker.pcap`, `tlskeys.txt` and `certificate.pem` files. 
+> Open **Wireshark** with:
+```
+wireshark ftps_filtered_capturestocker.pcap
+```
+> Go to **Edit > Preferences > Protocols (list them all) > TLS > (Pre)-Master-Secret log filename**. Import the `tlskeys.txt` file and click on **ok** to save it.
+> Now TLS/FTP packets should be decrypted !
+
+## Sniffing HTTP packets
