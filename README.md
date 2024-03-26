@@ -162,5 +162,22 @@ sudo node Server.js
 After executings those commands, you need to quit the `sniff_http.py` program by pressing `Ctrl+C`.
 In the end, you will have 3 output files, `http_capturestocker.pcap`, `Not_filtered_output.txt`, and `Filtered_output.txt`. 
 
+## Sniffing TELNET packets
+> First, check the text file `User guide - Telnet.txt`, it tells you which requirements you need to have before executing the python script `sniff_telnet.py`.
 
+Once done, run the program `sniff_telnet.py` with this command:
+```
+sudo python3 sniff_telnet.py
+```
+> Don't forget to check the IP addresses and network interfaces on both machines with:
+> ```
+> ip a
+> ifconfig
+> ```
+> And add them as parameters
 
+![sniff_telnet.py](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/2656d5eb-6862-4029-a876-ea2b054f0f4c)
+
+# FTP and FTPS automatization
+We build an all-in-one python script in the main folder called `all_auto.py` to automate all scripts of our project. 
+> Although we were successful with the FTP and FTPS protocols for restarting the servers and sniffing, we encountered difficulties when attempting to upload files with the script `uploading_files.py`.
