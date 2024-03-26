@@ -1,7 +1,4 @@
-
-
-
-
+#!/usr/bin/python3
 def copy_lines(input_file_name, output_file_name1, output_file_name2, output_file_name3, output_file_name4, keywords1, keywords2, keywords3, keywords4):
     with open(input_file_name, 'r') as input_file, open(output_file_name1, 'w') as output_file1, open(output_file_name2, 'w') as output_file2, open(output_file_name3, 'w') as output_file3, open(output_file_name4, 'w') as output_file4:
         for line in input_file:
