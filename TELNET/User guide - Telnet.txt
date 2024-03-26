@@ -1,0 +1,18 @@
+Requirements :
+- One Kali OS with 2 shells
+- One Ubuntu OS or others
+
+On Ubuntu :
+- do an "ifconfig" or "ip a"
+- Take note of the IP address from the network interface enps03
+
+On Kali :
+- On the first shell :
+	- Execute the python script "sniff_telnet.py"
+- On the second shell :
+	- Enter the command "telnet <IP address of Ubuntu>"
+	- Enter "seed" for the username and "dees" for the password
+	- Then do whatever you want
+- Go back to the first shell
+	- Quit the python program
+- Display the content of "filteredOutputKali.txt" and "filteredOutputUbuntu.txt"
