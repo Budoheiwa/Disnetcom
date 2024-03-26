@@ -20,7 +20,6 @@ def intercept_packets(interface, filter_expression, timeout):
                 first_packet_received = False
         else:
             break
-    
     return packets
 
 def parse_pcap(capture_file):
@@ -42,7 +41,6 @@ def pcap_filter_packets(capture_file, filtered_pcap_file):
         "-V",  # Include packet details (including payload)
         "-w", filtered_pcap_file  # Output pcap file
     ]
-
     # Execute the tshark command
     try:
         subprocess.run(tshark_command, check=True)
@@ -50,15 +48,15 @@ def pcap_filter_packets(capture_file, filtered_pcap_file):
         print(f"Error executing command: {e}")
 
 if __name__ == "__main__":
-    interface = ["eth0", "lo", "br-508d6f4743bc"]   # Add or change network interfaces if necessary 
-    filter_expression = "port 21 or (portrange 30000-30010)"
-    timeout = 20  # Seconds
+    interface = ["eth0", "lo", "br-508d6f4743bc"]   # Select your network interfaces 
+    filter_expression = "port 21 or (portrange 30000-30010)" # Select your filter expression, ports, etc...
+    timeout = 20  # Set a timer in Seconds
 
     captured_packets = intercept_packets(interface, filter_expression, timeout)
     if captured_packets:
-        wrpcap("ftps_capturestocker.pcap", captured_packets)
-        parse_pcap("ftps_capturestocker.pcap")
+        wrpcap("ftps_capturestocker.pcap", captured_packets) # pcap file is stored
+        parse_pcap("ftps_capturestocker.pcap") # Load and read the pcap file
         print('\n' + "--End of the parsing--" + '\n')
         print("--Beginning of the pcap file filtering--" + '\n')
-        pcap_filter_packets("ftps_capturestocker.pcap", "ftps_filtered_capturestocker.pcap")
+        pcap_filter_packets("ftps_capturestocker.pcap", "ftps_filtered_capturestocker.pcap") # The second pcap output is filtered
 
