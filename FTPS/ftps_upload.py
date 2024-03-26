@@ -14,7 +14,7 @@ def send_files_to_ftps(local_folder_path, ftps_server, ftps_user, ftps_password)
 
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    files_directory = os.path.join(base_dir, 'files')
+    files_directory = os.path.join(base_dir, 'files') # Select your folder to upload files from it
 
     # List all files in the 'files' directory
     all_files = [(os.path.join(files_directory, file), file) for file in os.listdir(files_directory) if os.path.isfile(os.path.join(files_directory, file))]
@@ -22,8 +22,8 @@ def main():
     # Construct the wildcard path for local_folder_path
     local_folder_path = os.path.join(files_directory, '*')
 
-    ftps_server = '172.21.0.2'
-    ftps_user = 'username'
+    ftps_server = '172.21.0.2' # Enter the FTPS server's IP address
+    ftps_user = 'username' # Enter the credentials to connect to the FTPS server
     ftps_password = 'mypass'
 
     send_files_to_ftps(local_folder_path, ftps_server, ftps_user, ftps_password)
