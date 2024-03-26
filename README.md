@@ -140,3 +140,26 @@ wireshark ftps_filtered_capturestocker.pcap
 > Now TLS/FTP packets should be decrypted !
 
 ## Sniffing HTTP packets
+Run the `sniff_http.py` script in `HTTP` folder, from a **terminal** with the command:
+```
+sudo python3 sniff_http.py
+```
+![sniff_http.py](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/e35fb489-8a3d-4c35-8123-b0574bbc3fc2)
+> Don't forget to modify the network interfaces and output files according to your preferences.
+
+In another shell, run the script `Server.js` to deploy the webserver that includes `index.html`.
+> You need to install first the `node` package before running the JS script.
+
+```
+sudo node Server.js
+```
+> When the webserver is running, it will provide you an URL link to connect it such as `http:/localhost:3000/`. Click it and it will redirect you in a web page.
+> ![Server.js](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/0c0bdf7e-ef50-43f0-b428-232c38c1d391)
+> ![Web page for credentials](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/4a5bc574-cbf8-4cf7-b720-eb00052bf982)
+> Enter some credentials in **Username** and **Password**, then click on **Log in**
+
+After executings those commands, you need to quit the `sniff_http.py` program by pressing `Ctrl+C`.
+In the end, you will have 3 output files, `http_capturestocker.pcap`, `Not_filtered_output.txt`, and `Filtered_output.txt`. 
+
+
+
