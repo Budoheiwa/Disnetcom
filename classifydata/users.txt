@@ -3,3 +3,6 @@ users
 utilisateur
 utilisateurs
 hash.txt
+pass
+password
+username
