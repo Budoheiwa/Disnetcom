@@ -122,3 +122,9 @@ sudo docker exec ftps-server hostname -I
 After executing those 2 python scripts, you should have in your current folder the `ftps_capturestocker.pcap` and `ftps_filtered_capturestocker.pcap` files. 
 
 ### With `retrieve_tlskeys.py`
+> You need to download the repo from [fxb-cocacoding](https://github.com/fxb-cocacoding/ssl_decrypt/blob/master/sslkeylog.c)
+> Compile the `sslkeylog.c` script to create a library called `libsslkeylog.so`
+> And move it to `FTPS` folder
+
+![retrieve_tlskeys.py](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/bedccff8-5154-45c6-951e-8b6b5c7438e1)
+
