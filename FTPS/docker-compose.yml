@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   ftpd_server:
     image: stilliard/pure-ftpd
@@ -17,9 +16,9 @@ services:
 #      - "/etc/letsencrypt/live/<your_server>/privkey.pem:/etc/ssl/private/pure-ftpd-key.pem"
     environment:
       PUBLICHOST: "localhost"
-      FTP_USER_NAME: username
+      FTP_USER_NAME: username # Modify the credentials according to your preferences
       FTP_USER_PASS: mypass
-      FTP_USER_HOME: /home/username
+      FTP_USER_HOME: /home/username # Change the main path folder of your FTPS server
 # also for ssl/tls:
-      ADDED_FLAGS: "--tls=2"
+      ADDED_FLAGS: "--tls=2" # uncomment for ssl/tls
     restart: always
