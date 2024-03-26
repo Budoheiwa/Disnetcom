@@ -3,7 +3,7 @@ import subprocess
 from scapy.all import *
 
 def sniff_packets(interface, output_file):
-    command = f"sudo tcpdump -i lo -w {wireOutput}"
+    command = f"sudo tcpdump -i {interface} -w {output}"
     try:
         subprocess.run(command, check=True, shell=True)
     except subprocess.CalledProcessError as e:
@@ -61,16 +61,16 @@ def filter_content(input_file, output_file, keywords):
 
 if __name__ == "__main__":
     interface = "lo"
-    wireOutput = "output.pcap"
-    not_filtered_output_file = "notFilteredOutput.txt"
-    filtered_output_file = "filteredOutput.txt"
+    output = "http_capturestocker.pcap"
+    not_filtered_output_file = "Not_filtered_output.txt"
+    filtered_output_file = "Filtered_output.txt"
 
     print("#" * 10 + " Code 1: Sniffing Packets " + "#" * 10)
-    sniff_packets(interface, wireOutput)
+    sniff_packets(interface, output)
     print("#" * 50 + "\n")
 
     print("#" * 10 + " Code 2: Parsing Packets " + "#" * 10)
-    packets_data = parse_pcap(wireOutput)
+    packets_data = parse_pcap(output)
     print("#" * 50 + "\n")
 
     print("#" * 10 + " Code 3: Writing not Filtered Data " + "#" * 10)
@@ -79,6 +79,6 @@ if __name__ == "__main__":
     
     print("#" * 10 + " Code 4: Writing Filtered Data " + "#" * 10)
     keywords = ["username", "password", "Host", "Date"]
-    output_file = "filtered_output.txt"
+#    output_file = "filtered_output.txt"
     filter_content(not_filtered_output_file, filtered_output_file, keywords)
     print("#" * 50 + "\n")
