@@ -60,10 +60,10 @@ def filter_content(input_file, output_file, keywords):
         print("Input file not found.")
 
 if __name__ == "__main__":
-    interface = "lo"
-    output = "http_capturestocker.pcap"
-    not_filtered_output_file = "Not_filtered_output.txt"
-    filtered_output_file = "Filtered_output.txt"
+    interface = "lo" # Select network interfaces
+    output = "http_capturestocker.pcap" # Pcap file is stored
+    not_filtered_output_file = "Not_filtered_output.txt" # Raw data from HTTP/TCP packets
+    filtered_output_file = "Filtered_output.txt" # Final output in text file
 
     print("#" * 10 + " Code 1: Sniffing Packets " + "#" * 10)
     sniff_packets(interface, output)
@@ -79,6 +79,5 @@ if __name__ == "__main__":
     
     print("#" * 10 + " Code 4: Writing Filtered Data " + "#" * 10)
     keywords = ["username", "password", "Host", "Date"]
-#    output_file = "filtered_output.txt"
     filter_content(not_filtered_output_file, filtered_output_file, keywords)
     print("#" * 50 + "\n")
