@@ -79,6 +79,5 @@ if __name__ == "__main__":
     
     print("#" * 10 + " Code 4: Writing Filtered Data " + "#" * 10)
     keywords = ["username", "password", "Host", "Date"]
-#    output_file = "filtered_output.txt"
     filter_content(not_filtered_output_file, filtered_output_file, keywords)
     print("#" * 50 + "\n")
