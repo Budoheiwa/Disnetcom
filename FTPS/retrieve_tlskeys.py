@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     print("Retrieving the traffic secrets from SSL/TLS handshake !" + '\n')
 
-    command = f"sudo SSLKEYLOGFILE=./tlskeys.txt LD_PRELOAD={libsslkeylog} {ftps_upload_script}"
+    command = f"sudo SSLKEYLOGFILE=./tlskeys.txt LD_PRELOAD={libsslkeylog} {ftps_upload_script}" # TLS keys stored in a text file
     retrieve_tls_keys(command)
     
     print("\r"+"#" * 50 + "\n")
