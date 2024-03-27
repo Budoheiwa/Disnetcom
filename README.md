@@ -122,6 +122,8 @@ If you want to see the current IP address of your FTPS server, simply use the co
 ```
 sudo docker exec ftps-server hostname -I
 ``` 
+> When running the script, be sure to enter the right password.
+
 After executing those 2 python scripts, you should have in your current folder the `ftps_capturestocker.pcap` and `ftps_filtered_capturestocker.pcap` files. 
 
 ### With `retrieve_tlskeys.py`
@@ -130,6 +132,8 @@ After executing those 2 python scripts, you should have in your current folder t
 > And move it to `FTPS` folder.
 
 ![retrieve_tlskeys.py](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/bedccff8-5154-45c6-951e-8b6b5c7438e1)
+
+> When running the script, be sure to enter the right password.
 
 After executing those 2 python scripts, you should have in your current folder the `ftps_capturestocker.pcap`, `ftps_filtered_capturestocker.pcap`, `tlskeys.txt` and `certificate.pem` files. 
 > Open **Wireshark** with:
@@ -178,6 +182,16 @@ sudo python3 sniff_telnet.py
 
 ![sniff_telnet.py](https://github.com/Budoheiwa/pcap-parser-secretnetworkcom/assets/156065416/2656d5eb-6862-4029-a876-ea2b054f0f4c)
 
-# FTP and FTPS automatization
+# FTP and FTPS automating
 We build an all-in-one python script in the main folder called `all_auto.py` to automate all scripts of our project. 
-> Although we were successful with the FTP and FTPS protocols for restarting the servers and sniffing, we encountered difficulties when attempting to upload files with the script `uploading_files.py`.
+> Although we were successful with the FTP and FTPS protocols for restarting the servers and sniffing, we encountered difficulties when attempting to upload files. Instead, we created another script to automate all uploading files with the script `uploading_files.py`.
+
+In a first **shell**, run the program `all_auto.py`:
+```
+sudo python3 all_auto.py
+```
+Then, in a second **shell**, run the program `uploading_files.py`:
+```
+sudo python3 uploading_files.py
+```
+Now we need to do the same for HTTP, TELNET and other protocols. The goal of this part, to make this project even greater, is to automate all scripts for all protocols. And the challenge will be to sniff while sending requests ! 
