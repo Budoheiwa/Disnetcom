@@ -6,3 +6,5 @@ hash.txt
 pass
 password
 username
+pwd
+admin
