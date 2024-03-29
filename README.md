@@ -28,7 +28,7 @@ sudo usermod -aG docker $USER
 ```
 > The final thing is to **logout and in again**
 
-# How to use PCAP Parser project
+# How to use Disnetcom project
 ## Sniffing FTP packets
 Use the file `docker-compose.yml` from `FTP` folder with the command in the **terminal**:
 ```
