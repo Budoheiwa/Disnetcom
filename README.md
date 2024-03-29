@@ -1,5 +1,5 @@
 # REQUIREMENTS
-Before using the PCAP parser project, you need some **requirements**:
+Before using the Disnetcom project, you need some **requirements**:
 
 - Install [Kali Linux OS](https://www.kali.org/get-kali/#kali-platforms).
 
